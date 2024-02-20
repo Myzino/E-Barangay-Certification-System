@@ -7,38 +7,35 @@
     </x-slot>
 
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <table class="table table table-bordered" border="1">
-   
-    <thead >
-    <tr>
-      <th scope="colspan=5">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Domain</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($tenants as $tenant)
-    <tr>
-      <th scope="row">1</th>
-      <td>{{ $tenant->name }}</td>
-      <td>{{ $tenant->email }}</td>
-      <td>
-        @foreach($tenant->domains as $domain)
-        {{ $domain -> domain }} {{ $loop -> last ? '': ','}}
-      
-      @endforeach
-      </td>
-      <td>@mdo</td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+    <div class="card-body">
+      <div class="table-responsive">
+          <table id="example" class="display" style="min-width: 845px">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Domain</th>
+                      <th>Action</th>
+                     
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach($tenants as $tenant)
+                  <tr>
+                      <td>{{ $tenant->name }}</td>
+                      <td>{{ $tenant->email }}</td>
+                      <td>  @foreach($tenant->domains as $domain)
+                        {{ $domain -> domain }} {{ $loop -> last ? '': ','}}
+                      
+                      @endforeach</td>
+                      <td></td>
+                  </tr>
+                  @endforeach
+          </table>
+      </div>
+  </div>
+</div>
+</div>
                 </div>
             </div>
         </div>
