@@ -23,6 +23,7 @@
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
+    
 
         <!-- Remember Me -->
         <div class="block mt-4">
@@ -30,6 +31,11 @@
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
                 <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
             </label>
+        </div>
+        <div class="row" style="border: 2px solid black;">
+            <div class="col-md-12">
+                <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" href="{{ route('google-auth') }}" ><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using Google</a>
+            </div>
         </div>
 
         <div class="flex items-center justify-end mt-4">
