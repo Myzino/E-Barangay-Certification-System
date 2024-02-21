@@ -28,15 +28,6 @@ class UsersTableSeeder extends Seeder
             ],
 
             
-            //Tenant
-            [
-                'name' => 'Agent',
-                'email' => 'tenant@gmail.com',
-                'password' => Hash::make('tenant123'),
-                'role' => 'tenant',
-                'status' => 'active',
-            ],
-
             //User
             [
                 'name' => 'User',
