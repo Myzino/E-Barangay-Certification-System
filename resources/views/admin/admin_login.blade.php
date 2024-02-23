@@ -1,4 +1,6 @@
+{{-- LOG IN FOR ADMIN IS ON THE app/views/auth/login.blade.php --}}
 
+{{-- 
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -22,7 +24,7 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                    <h4 class="text-center mb-4">Sign in your account</h4>
+                                    <h4 class="text-center mb-4">Sign in as an Admin</h4>
                                     <form method="POST" action="{{ route('login') }}">
                                     @csrf
 
@@ -48,6 +50,14 @@
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Sign me in</button>
                                         </div>
+
+                                        <p class="my-2 text-center font-weight-bold">or</p>
+                                        {{-- google part --}}
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline d-flex align-items-center justify-content-center" href="{{ route('google-auth') }}" ><img src="https://img.icons8.com/color/16/000000/google-logo.png" class="mx-2"> Signup Using Google</a>
+                                            </div>
+                                        </div>
                                     </form>
                                     <div class="new-account mt-3">
                                         <p>Don't have an account? <a class="text-primary" href="./page-register.html">Sign up</a></p>
@@ -59,17 +69,17 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <!--**********************************
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="{{asset('./vendor/global/global.min.js')}}"></script>
+    {{-- <script src="{{asset('./vendor/global/global.min.js')}}"></script>
     <script src="{{asset('./js/quixnav-init.js')}}"></script>
     <script src="{{asset('./js/custom.min.js')}}"></script>
 
 </body>
 
-</html>
+</html> --}}
