@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login Page</title>
+    <title>Login Page E-Barangay</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('./images/favicon.png')}}">
     <link href="{{asset('./css/style.css')}}" rel="stylesheet">
@@ -28,11 +28,13 @@
 
                                         <div class="form-group">
                                             <label><strong>Email</strong></label>
-                                            <input name="email" type="email" class="form-control" value="admin@gmail.com">
+                                            <input name="email" type="email" class="form-control" value="admin@gmail.com" required>
+                                            <x-input-error :messages="$errors->get('email')" class="mt-2 text-muted" />
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Password</strong></label>
-                                            <input name="password" type="password" class="form-control">
+                                            <input name="password" type="password" class="form-control" required>
+                                            <x-input-error :messages="$errors->get('password')" class="mt-2 text-muted" />
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
@@ -42,7 +44,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <a href="page-forgot-password.html">Forgot Password?</a>
+                                                <a href="{{ route('password.request') }}">Forgot Password?</a>
                                             </div>
                                         </div>
                                         <div class="text-center">
@@ -53,12 +55,12 @@
                                         {{-- google part --}}
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline d-flex align-items-center justify-content-center" href="{{ route('google-auth') }}" ><img src="https://img.icons8.com/color/16/000000/google-logo.png" class="mx-2"> Signup Using Google</a>
+                                                <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline d-flex align-items-center justify-content-center" href="{{ route('google-auth') }}" ><img src="https://img.icons8.com/color/16/000000/google-logo.png" class="mx-2"> Sign in Using Google</a>
                                             </div>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary" href="register">Sign up</a></p>
+                                        <p>Don't have an account? <a class="text-primary" href="register">Register</a></p>
                                     </div>
                                 </div>
                             </div>
