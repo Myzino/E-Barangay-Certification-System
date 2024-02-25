@@ -54,7 +54,9 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
 }); //End Group Admin middleware
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+// share login page with user for now
+// Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
 
 
