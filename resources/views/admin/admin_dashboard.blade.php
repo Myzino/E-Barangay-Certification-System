@@ -14,7 +14,8 @@
     <link href="{{asset('./vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
     <link href="{{asset('./css/style.css')}}" rel="stylesheet">
 
-
+    {{-- toaster for update notif --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 </head>
 
@@ -86,6 +87,33 @@
 
 
     <script src="{{asset('./js/dashboard/dashboard-1.js')}}"></script>
+
+    {{-- Toaster for update notif --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch(type){
+        case 'info':
+        toastr.info(" {{ Session::get('message') }} ");
+        break;
+    
+        case 'success':
+        toastr.success(" {{ Session::get('message') }} ");
+        break;
+    
+        case 'warning':
+        toastr.warning(" {{ Session::get('message') }} ");
+        break;
+    
+        case 'error':
+        toastr.error(" {{ Session::get('message') }} ");
+        break; 
+    }
+    @endif 
+    </script>
+    {{-- end of toaster for update notif --}}
 
 </body>
 
