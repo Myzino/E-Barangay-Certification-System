@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TenantController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OfficialController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +27,22 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/logout', [AdminController::class, 'Logout'])->name('logout');
+
+// Route::get('/profile', [AdminController::class, 'Profile'])->name('profile');                        save s
+
+// Route::post('/profile/store', [AdminController::class, 'ProfileStore'])->name('profile.store');      save
+
+
+
+// Temporary for the CRUDS lang
+Route::get('/student', [StudentController::class, 'StudentPage'])->name('student');
+Route::get('/grade', [GradeController::class, 'GradePage'])->name('grade');
+Route::get('/teacher', [TeacherController::class, 'TeacherPage'])->name('teacher');
+
 
 
 Route::middleware('auth')->group(function () {
@@ -45,6 +62,7 @@ Route::get('auth/google/call-back', [GoogleAuthController::class, 'callBackGoogl
 require __DIR__.'/auth.php';
 
 
+//******NOT USED******//
 //Admin Route
 //protect route -> user can't access admin
 Route::middleware(['auth', 'role:admin'])->group(function() {
@@ -58,9 +76,9 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     
 
-
-
 }); //End Group Admin middleware
+
+
 
 
 // share login page with user for now

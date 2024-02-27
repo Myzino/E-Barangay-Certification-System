@@ -64,3 +64,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+Feb-26-2024:
+
+-things got interestingly confusing, we change from having a dedicated route for admin (e.g admin/dashboard) -> directly root child of views (e.g. /dashboard)
+
+-transfered the admin to the root child directory of views
+
+-note that we will delete the related to admin/... child directory of views soon if this goes smoothly and its corresponding views
+
+-note that the our /profile is conflicting with breeze ATM so we will work with the tenants and layout first 
