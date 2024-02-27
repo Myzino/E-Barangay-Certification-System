@@ -40,6 +40,9 @@ Route::get('/logout', [AdminController::class, 'Logout'])->name('logout');
 
 // Temporary for the CRUDS lang
 Route::get('/student', [StudentController::class, 'StudentPage'])->name('student');
+Route::get('/student/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
+Route::put('/student/{id}', [StudentController::class, 'update'])->name('student.update');
+Route::delete('/student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
 Route::get('/grade', [GradeController::class, 'GradePage'])->name('grade');
 Route::get('/teacher', [TeacherController::class, 'TeacherPage'])->name('teacher');
 
