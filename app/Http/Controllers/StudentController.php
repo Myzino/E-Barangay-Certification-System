@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 class StudentController extends Controller
 {
-    public function StudentPage() {
+    public function StudentPage() {         //to view student page
 
         $students = Student::all();
 
@@ -14,11 +14,24 @@ class StudentController extends Controller
 
     } //end method
 
-    // New method to display the edit form for a specific student
-    public function edit($id)
-    {
-        $student = Student::findOrFail($id);
-        return view('custom-modals.student', ['student' => $student]);
+    // New method to add a student
+    public function store(Request $request) {
+
+        // Validate and update the student data
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'age' => 'required|integer|min:1',
+        ]);
+
+        // Create a new student
+        $student = new Student();
+        $student->name = $request->input('name');
+        $student->address = $request->input('address');
+        $student->age = $request->input('age');
+        $student->save();
+
+        return redirect()->route('student')->with('success', 'Student added successfully');
     }
 
     // New method to update the edited student

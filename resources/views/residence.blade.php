@@ -1,6 +1,6 @@
 @extends('dashboard')
 @section('content')
 
-@include('custom-tables.student-table')
+<style>body{background:green;}</style>
 
 @endsection

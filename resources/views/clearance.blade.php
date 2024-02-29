@@ -1,8 +1,6 @@
 @extends('dashboard')
 @section('content')
 
-@include('custom-tables.teacher-table')
-
-
+<style>body{background:blue;}</style>
 
 @endsection

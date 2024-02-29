@@ -14,22 +14,16 @@
             <li><a href="{{ route('student') }}" aria-expanded="false"><i class="icon icon-single-04"></i><span
                 class="nav-text">Students</span></a></li>
 
-            <li><a href="{{ route('grade') }}" aria-expanded="false"><i class="icon icon-single-04"></i><span
-                class="nav-text">Grades</span></a></li>
-                
-            <li><a href="{{ route('teacher') }}" aria-expanded="false"><i class="icon icon-single-04"></i><span
-                class="nav-text">Teachers</span></a></li>
-            
             
             <li class="nav-label">Transactions</li>
 
-            <li><a href="#" aria-expanded="false"><i class="ti-view-list-alt"></i><span
+            <li><a href="{{route('indigency-show')}}" aria-expanded="false"><i class="ti-view-list-alt"></i><span
                 class="nav-text">Indigency Certificate</span></a></li>
                 
-            <li><a href="#" aria-expanded="false"><i class="ti-file"></i><span
+            <li><a href="{{route('residence-show')}}" aria-expanded="false"><i class="ti-file"></i><span
                 class="nav-text">Barangay Residence</span></a></li>
             
-            <li><a href="#" aria-expanded="false"><i class="ti-files"></i><span
+            <li><a href="{{route('clearance-show')}}" aria-expanded="false"><i class="ti-files"></i><span
                 class="nav-text">Barangay Clearance</span></a></li>
 
 

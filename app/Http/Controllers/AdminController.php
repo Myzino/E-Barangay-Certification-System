@@ -42,7 +42,7 @@ class AdminController extends Controller
 
         // return redirect('admin/login');
         
-        return redirect('/login');
+        return redirect('/');           //mas nice lang
     }
 
 
