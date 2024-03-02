@@ -55,7 +55,7 @@
                                         {{-- google part --}}
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline d-flex align-items-center justify-content-center" href="{{ route('google-auth') }}" ><img src="https://img.icons8.com/color/16/000000/google-logo.png" class="mx-2"> Sign in Using Google</a>
+                                                <a class="btn btn-lg btn-block btn-outline d-flex align-items-center justify-content-center" style="border: .1rem solid #000" href="{{ route('google-auth') }}" ><img src="https://img.icons8.com/color/16/000000/google-logo.png" class="mx-2"> Sign in Using Google</a>
                                             </div>
                                         </div>
                                     </form>
