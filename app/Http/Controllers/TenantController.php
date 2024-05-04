@@ -13,7 +13,10 @@ class TenantController extends Controller
      */
     public function index()
     {
-        return view ('tenants.index');
+        $tenants = Tenant::with('domains')->get();
+
+        return view('tenants.index', ['tenants' => $tenants]);
+
     }
 
     /**
@@ -42,7 +45,7 @@ class TenantController extends Controller
 
                 'domain' => $validatedData['domain-name']. '.' .config('app.domain')
             ]);
-            return redirect() -> route('tenants.index');
+            return redirect() -> route('tenants.index', $tenant);
     }
 
     /**

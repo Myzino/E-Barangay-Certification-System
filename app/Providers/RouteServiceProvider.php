@@ -28,13 +28,26 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
-        $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
+        $centralDomains = $this->centralDomains();
 
-            Route::middleware('web')
+
+        $this->routes(function () use ($centralDomains) {
+            foreach($centralDomains as $domain) {
+
+                Route::middleware('api')
+                ->prefix('api')
+                ->domain($domain)
+                ->group(base_path('routes/api.php'));
+                
+                Route::middleware('web')
+                ->domain($domain)
                 ->group(base_path('routes/web.php'));
+            }
         });
+    }
+
+    protected function centralDomains(): array {    //tungod ani, wala na ga share ug route ang tenant sa central domain oWOW
+        
+        return config('tenancy.central_domains');
     }
 }
