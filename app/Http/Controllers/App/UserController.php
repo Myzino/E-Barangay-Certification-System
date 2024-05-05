@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
+
 
 class UserController extends Controller
 {
@@ -14,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $users = User::with('roles')->get();
 
         return view('app.users.index', ['users' => $users]);
 
@@ -58,7 +60,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $roles = Role::get();
+
+        return view('app.users.edit', ['user'=>$user, 'roles'=>$roles]);
+
     }
 
     /**
@@ -66,7 +71,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255|unique:users,email,'.$user->id,
+            'roles' => 'required|array'
+        ]);
+        
+        
+        $user->update($validatedData);
+        $user->roles()->sync($request->input('roles'));
+
+        return redirect() -> route('users.index');
     }
 
     /**

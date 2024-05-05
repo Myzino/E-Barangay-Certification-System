@@ -27,12 +27,14 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                              {{-- @foreach($user->domains as $domain)
-                              {{ $domain -> domain }} {{ $loop -> last ? '': ','}}
+                              @foreach($user->roles as $role)
+                              {{ $role -> name }} {{ $loop -> last ? '': ','}}
                             
-                            @endforeach --}}
+                            @endforeach
                             </td>
-                            <td></td>
+                            <td class="px-6 py-4">
+                              <x-btn-link href="{{ route('users.edit', $user->id)}}">Edit</x-btn-link>
+                            </td>
                           </tr>
                           @endforeach
                         </tbody>
