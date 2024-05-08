@@ -30,7 +30,7 @@ Route::middleware([
 ])->group(function () {
 Route::get('/', function () {
     return view('app.welcome');
-});
+})->name('app.welcome');
 
 Route::get('/dashboard', function () {
     return view('app.dashboard');
