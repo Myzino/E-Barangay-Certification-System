@@ -37,12 +37,12 @@
                             <span class="custom-dd-color">Profile</span>
                         </li>
                     </a>
-                    <a href="#" class="text-body ms-0">
+                    {{-- <a href="#" class="text-body ms-0">
                         <li class="dropdown-item py-2">
                             <i class="me-2 icon-md" data-feather="edit"></i>
                             <span class="custom-dd-color">Change Password</span>
                         </li>
-                    </a>
+                    </a> --}}
                     <a href="{{ route ('app.logout')}}" class="text-body ms-0">
                         <li class="dropdown-item py-2">
                             <i class="me-2 icon-md" data-feather="log-out"></i>

@@ -36,6 +36,11 @@ class TenantController extends Controller
         return view('app.profile',compact('profileData')); //passing through compact method
     }
 
+    public function TenantPlan() {
+        
+        return view('app.plan');
+    }
+
     public function TenantProfileStore(Request $request) {  //post request to update profile
 
         $id = Auth::user()->id;         //access user table authenticated field

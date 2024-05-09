@@ -3,9 +3,19 @@
         {{-- @role('secretary');
         <x-btn-link href="{{ route('users.index')}}">Users</x-btn-link>
         @endrole --}}
+        <div class="page-content">
+            <div class="card">
+                <div class="card-body">
+                        <div class="d-flex justify-content-between">
 
-        @role('secretary');
-        <x-btn-link href="{{ route('users.index')}}" style="position: absolute; margin: auto; top: 0; left: 0; bottom: 0; right: 0; width: 100px; height: 50px;">Users</x-btn-link>
-        @endrole
+                                @role('secretary')  {{-- only user thah has secretary role can access this button--}}
+                                <a href="{{ route('users.index')}}" class="btn btn-primary">Tenant-Users</a>
+                                @endrole
+                                <a href="{{ route('resident.index')}}" class="btn btn-primary">Residents</a>
+                                
+                        </div>
+                </div>
+            </div>
+        </div>
 
 @endsection

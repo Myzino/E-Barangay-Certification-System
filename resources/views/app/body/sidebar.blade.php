@@ -27,6 +27,13 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route ('app.plan') }}" class="nav-link">
+              <i class="link-icon" data-feather="gift"></i>
+              <span class="link-title">Choose a Plan</span>
+            </a>
+          </li>
+
           @role('secretary')
           <li class="nav-item">
             <a href="{{ route ('app.indigency') }}" class="nav-link">
@@ -54,6 +61,7 @@
             </a>
           </li>
           @endrole
+
 
 
 
