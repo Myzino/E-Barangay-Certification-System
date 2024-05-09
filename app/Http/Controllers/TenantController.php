@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 
 class TenantController extends Controller
 {
@@ -16,6 +20,76 @@ class TenantController extends Controller
         $tenants = Tenant::with('domains')->get();
 
         return view('tenants.index', ['tenants' => $tenants]);
+
+    }
+
+    public function TenantDashboard() {
+
+        return view('app.index');
+    }
+
+    public function TenantProfile() {
+
+        $id = Auth::user()->id;         //access user table authenticated field
+        $profileData = User::find($id);
+
+        return view('app.profile',compact('profileData')); //passing through compact method
+    }
+
+    public function TenantProfileStore(Request $request) {  //post request to update profile
+
+        $id = Auth::user()->id;         //access user table authenticated field
+        $data = User::find($id);
+        $data->username = $request->username;   //the user input is stored in database
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->address = $request->address;
+
+        if($request->file('photo')) {
+            $file = $request->file('photo');
+            @unlink(public_path('upload/admin_images/'.$data->photo));  //replace previous admin image
+            $filename = date('YmdHi').$file->getClientOriginalName(); //to avoid similar photo conflict
+            $file->move(public_path('upload/admin_images'),$filename);
+            $data['photo'] = $filename;
+        }
+        $data->save();
+
+        $notification = array ( //toaster notif when updated
+            'message' => 'Admin Profile Updated Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function TenantIndigency() {
+
+        return view('app.indigency');
+    }
+
+    public function TenantResidence() {
+
+        return view('app.residence');
+    }
+
+    public function TenantClearance() {
+
+        return view('app.clearance');
+    }
+
+    public function TenantLogout(Request $request): RedirectResponse
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        // return redirect('/admin/login');     //commented because we are using the same loginpage for users and admin's, after logout they will be redirected to that page
+
+        // return redirect('/login');
+        return redirect('/');                   //warag mas chada ni
 
     }
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\App\{
     ProfileController,
     UserController
 };
+use App\Http\Controllers\TenantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,15 +33,31 @@ Route::get('/', function () {
     return view('app.welcome');
 })->name('app.welcome');
 
-Route::get('/dashboard', function () {
-    return view('app.dashboard');
-})->middleware(['auth', 'verified'])->name('app.dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/dashboard', [TenantController::class, 'TenantDashboard'])->name('app.dashboard');
+
+    Route::get('/profile', [TenantController::class, 'TenantProfile'])->name('app.profile');
+
+    Route::post('/profile/store', [TenantController::class, 'TenantProfileStore'])->name('app.profile.store');
+
+    Route::get('/logout', [TenantController::class, 'TenantLogout'])->name('app.logout');
+
+    Route::get('/indigency', [TenantController::class, 'TenantIndigency'])->name('app.indigency');
+
+    Route::get('/residence', [TenantController::class, 'TenantResidence'])->name('app.residence');
+
+    Route::get('/clearance', [TenantController::class, 'TenantClearance'])->name('app.clearance');
+
+
+
+
+    // this is the route only secretary can accesss!
     Route::group(['middleware' => ['role:secretary']], function () {
         
         Route::resource('users', UserController::class);
