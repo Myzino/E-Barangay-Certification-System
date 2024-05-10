@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('residents', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
-            $table->string('certificate');
+            $table->string('certificate')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -26,8 +26,11 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        //
+        Schema::table('residents', function (Blueprint $table) {
+            // Revert the change if needed
+            $table->string('email')->nullable(false)->change();
+        });
     }
 };

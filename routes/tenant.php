@@ -14,7 +14,7 @@ use App\Http\Controllers\App\{
 };
 use App\Http\Controllers\TenantController;
 use App\Http\Controllers\PdfController;
-use App\Http\Controllers\App\ResidentController;
+use App\Http\Controllers\ResidentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,8 +77,16 @@ Route::middleware('auth')->group(function () {
 // Resident-related routes group
 Route::prefix('residents')->middleware(['auth', 'verified'])->group(function () {          //in short this group route is http://127.0.0.1:8000/residents/.. 'automatic residents na siya mag start'
    
-    // Route for students page
+    // Route for resident page
     Route::get('/', [ResidentController::class, 'index'])->name('resident.index');
+
+    // Route for resident page
+    Route::post('/resident', [ResidentController::class, 'store'])->name('resident.store');
+
+
+
+    //Route for deleting resident (delete button)
+    Route::delete('/resident/{id}', [ResidentController::class, 'destroy'])->name('resident.destroy');
 
 });
 

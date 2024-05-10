@@ -10,13 +10,13 @@
                 <div class="d-flex justify-content-between my-2">
                     <h6 class="card-title">Residents Table</h6>    
                     
-	                <!-- Add Student Modal -->
-                    {{-- @include('student.add') --}}
+	                <!-- Add Resident Modal -->
+                    @include('app.residents.add')
                 </div>
 
                 {{-- Student TAble --}}
                 <div class="table-responsive">
-                  <table id="dataTableExample" class="table">
+                  <table id="dataTableExample" class="table text-center">
                     <thead>
                       <tr>
                         <th>Name</th>
@@ -27,17 +27,34 @@
                       </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach($students as $student)
+
+                        @foreach($residents as $resident)
                             <tr>
-                                <td>{{ ucfirst($student->name) }}</td>
-                                <td>{{ ucfirst($student->address) }}</td>
-                                <td>{{ $student->age }}</td>
+                                <td>{{ ucfirst($resident->name) }}</td>
+                                <td>{{ ucfirst($resident->phone) }}</td>
+                                <td>{{ $resident->address }}</td>
                                 <td>
-                                    @include('student.edit')
-                                    @include('student.delete')
+                                  <div class="btn-group dropend">
+                                      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton_{{ $resident->id }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Choose a Certificate
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_{{ $resident->id }}">
+                                          <a class="dropdown-item" href="#" onclick="updateCertificate({{ $resident->id }}, 'Barangay Indigency')">Barangay Indigency</a>
+                                          <a class="dropdown-item" href="#" onclick="updateCertificate({{ $resident->id }}, 'Barangay Clearance')">Barangay Clearance</a>
+                                          <a class="dropdown-item" href="#" onclick="updateCertificate({{ $resident->id }}, 'Barangay Residency')">Barangay Residency</a>
+                                      </div>
+                                  </div>
+                                </td>
+                                <td>
+                                    {{-- @include('student.edit') --}}
+                                    <button class="btn btn-info">Export</button>
+
+                                    <button class="btn btn-primary">Edit</button>
+                                    <!-- Delete Resident Modal -->
+                                    @include('app.residents.delete')
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -49,3 +66,14 @@
 </div>
 
 @endsection
+<script>
+
+  function updateCertificate(residentId, certificate) {
+    // Find the dropdown button element
+    var dropdownButton = document.getElementById('dropdownMenuButton_' + residentId);
+    
+    // Update the dropdown button text to the selected certificate
+    dropdownButton.innerText = certificate;
+  }
+  
+</script>
