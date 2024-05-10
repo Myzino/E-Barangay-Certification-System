@@ -46,10 +46,10 @@
                                   </div>
                                 </td>
                                 <td>
-                                    {{-- @include('student.edit') --}}
-                                    <button class="btn btn-info">Export</button>
-
-                                    <button class="btn btn-primary">Edit</button>
+                                  {{-- Export Button --}}
+                                  <button class="btn btn-info">Export</button>
+                                    <!-- Delete Resident Modal -->
+                                    @include('app.residents.edit')
                                     <!-- Delete Resident Modal -->
                                     @include('app.residents.delete')
                                 </td>

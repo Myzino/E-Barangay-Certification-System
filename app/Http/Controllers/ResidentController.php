@@ -55,6 +55,45 @@ class ResidentController extends Controller
         }
     }
 
+    // Method to update a resident
+    public function update(Request $request, $id)
+    {
+        try {
+            // Validate and update the resident data
+            $this->validate($request, [
+                'name' => 'required|string|max:255',
+                'phone' => 'required|numeric|digits_between:11,12', // Age validation rule
+                'address' => 'required|string|max:255',
+            ], [
+                'phone.digits_between' => 'The phone number must be between :min and :max digits.',
+            ]);
+
+            $resident = Resident::findOrFail($id);
+            $resident->update($request->all());
+
+            // Toaster notification when updated
+            $notification = [
+                'message' => 'Resident Updated Successfully',
+                'alert-type' => 'success',
+            ];
+
+            return redirect()->route('resident.index')->with($notification);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            
+            // If validation fails, show Toastr error notification and flash errors to the session
+            $errors = $e->errors();
+            $errorMessage = reset($errors)[0]; // Get the first error message
+
+            $notification = [
+                'message' => $errorMessage,
+                'alert-type' => 'error',
+            ];
+
+            return redirect()->back()->withInput()->withErrors($errors)->with($notification);
+        }
+    }
+
     // method to delete a specific resident
     public function destroy($id)
     {
@@ -71,3 +110,10 @@ class ResidentController extends Controller
         return redirect()->route('resident.index')->with($notification);
     }
 }
+
+
+//In this Controller, I used 2 forms of validation:
+//1. $this->validate(): (from editing student) and;
+//2. Validator Facade: (from adding student);
+//I can use either only one of them for both function but I tried to use both to show you that there are several types of validators and these 2 are some examples, especially when put and post method is involved. Their difference is that #1 is simple and readable but limited control in errors handing, #2 is more code but more control over validation, it also requires this use Illuminate\Support\Facades\Validator;
+//From SIS-Laravel-System (in my github)

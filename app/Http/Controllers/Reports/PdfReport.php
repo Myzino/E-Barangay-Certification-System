@@ -26,7 +26,7 @@ class PdfReport extends FPDF
         $this->Cell(0, 10, 'Republic of the Philippines', 0, 1, 'C');
         $this->Cell(0, 0, 'Malaybalay City, Bukidnon 8700', 0, 1, 'C');
         $this->SetTextColor(0, 0, 255);     //set the color to blue
-        $this->Cell(0, 14, '- AirSense -', 0, 1, 'C');
+        $this->Cell(0, 14, 'E-Barangay', 0, 1, 'C');
         $this->Cell(0, 5, '', 'B', 1, 'C');
         $this->SetTextColor(0);     //reset the color to black
 

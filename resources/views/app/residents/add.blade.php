@@ -13,7 +13,6 @@
             </div>
             <div class="modal-body">
                 <form id="addResidentForm" action="{{ route('resident.store') }}" method="post">
-                {{-- <form id="addResidentForm" action="#" method="post"> --}}
                     @csrf
 
                     <div class="form-group">

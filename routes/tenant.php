@@ -83,7 +83,8 @@ Route::prefix('residents')->middleware(['auth', 'verified'])->group(function () 
     // Route for resident page
     Route::post('/resident', [ResidentController::class, 'store'])->name('resident.store');
 
-
+    // Route for updating a student (edit button sa modal)
+    Route::put('/resident/{id}', [ResidentController::class, 'update'])->name('resident.update');
 
     //Route for deleting resident (delete button)
     Route::delete('/resident/{id}', [ResidentController::class, 'destroy'])->name('resident.destroy');
