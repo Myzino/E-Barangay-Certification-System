@@ -66,7 +66,7 @@
 
                 <div class="welcome-tenant">
                     <h1 class="center">WELCOME ADMIN!</h1>
-                    <h3 class="center mt-2">How Do You Wish To Start?</h3>
+                    <h3 class="center mt-2">How Do You Want To Start?</h3>
                 </div>
                 <div class="">
                     @if (Route::has('login'))
