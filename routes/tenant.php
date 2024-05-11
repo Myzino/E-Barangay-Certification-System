@@ -60,12 +60,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/logout', [TenantController::class, 'TenantLogout'])->name('app.logout');
 
-    Route::get('/indigency', [TenantController::class, 'TenantIndigency'])->name('app.indigency');
-
-    Route::get('/residence', [TenantController::class, 'TenantResidence'])->name('app.residence');
-
-    Route::get('/clearance', [TenantController::class, 'TenantClearance'])->name('app.clearance');
-
 
     Route::get('/pdf', [ PdfController::class, 'index' ])->name('pdf.download');
 
