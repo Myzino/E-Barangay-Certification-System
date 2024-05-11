@@ -1,5 +1,8 @@
 <?php
 
+use App\Mail\HelloMail;
+
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TenantController;
@@ -17,9 +20,14 @@ use App\Http\Controllers\TenantController;
 
 Route::get('/', function () {
     return view('welcome');
+
 })->name('welcome');
 
+    
+ 
+
 Route::get('/dashboard', function () {
+
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

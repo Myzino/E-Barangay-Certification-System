@@ -32,7 +32,12 @@
                             
                             @endforeach
                             </td>
-                            <td></td>
+                            <td>
+                            <button type="button" class="btn" style="border: 2px solid black; color: black; background-color: yellow;">EDIT</button>
+                            <button type="button" class="btn" style="border: 2px solid black; color: black; background-color: red;">DELETE</button>
+
+
+                            </td>
                           </tr>
                           @endforeach
                         </tbody>
