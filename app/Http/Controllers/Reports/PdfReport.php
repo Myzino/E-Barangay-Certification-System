@@ -16,19 +16,25 @@ class PdfReport extends FPDF
         $x = ($pageWidth - $imageWidth) / 2;
 
         // Placement of image
-        $this->Image('barangay.png', $x-60, 10, $imageWidth);
+        $this->Image('kalilangan.png', $x-60, 10, $imageWidth);
         $this->Image('buksu.png',  $x+60, 10, $imageWidth);
 
         // Select Arial bold 15
         $this->SetFont('Arial', 'B', 12);
 
         //Parameter for the Cell(): (width(x), height(y), 'text', border, new line, 'alignment')
-        $this->Cell(0, 10, 'Republic of the Philippines', 0, 1, 'C');
-        $this->Cell(0, 0, 'Malaybalay City, Bukidnon 8700', 0, 1, 'C');
-        $this->SetTextColor(0, 0, 255);     //set the color to blue
-        $this->Cell(0, 14, 'E-Barangay', 0, 1, 'C');
-        $this->Cell(0, 5, '', 'B', 1, 'C');
-        $this->SetTextColor(0);     //reset the color to black
+        $this->Cell(0, 5, 'Republic of the Philippines', 0, 1, 'C');
+        $this->Cell(0, 5, 'PROVINCE OF BUKIDNON', 0, 1, 'C');
+        $this->Cell(0, 5, 'Municipality of Kalilangan', 0, 1, 'C');
+        $this->Cell(0, 5, 'Barangay Central Poblacion', 0, 1, 'C');
+        // $this->SetTextColor(0, 0, 255);    
+        $this->SetFont('Arial', '', 18);
+        $this->ln(10);
+        $this->Cell(0, 0, 'OFFICE OF THE PUNONG BARANGAY', 0, 1, 'C');
+        $this->ln(5);
+        $this->SetFont('Arial', '', 12);
+        $this->Cell(0, 5, '================================================================', 0, 1, 'C');
+        // $this->SetTextColor(0);     reset the color to black
 
     }
 
@@ -39,7 +45,7 @@ class PdfReport extends FPDF
         // Select Arial italic 8
         $this->SetFont('Arial', 'I', 8);
         // Print centered page number
-        $this->Cell(0, 10, 'Annual Assessment Report of MC-EMBX - Ambient Air Quality Monitoring Station. Released on: ' . date('m/d/Y (l) h:i:sa'), 0, 0, 'L');
+        $this->Cell(0, 10, 'E-Barangay Central Poblacion, Generated Certificate. Released on: ' . date('m/d/Y (l) h:i:sa'), 0, 0, 'L');
         $this->Cell(0, 10, 'Page '.$this->PageNo(), 0, 0, 'R');
     }
 

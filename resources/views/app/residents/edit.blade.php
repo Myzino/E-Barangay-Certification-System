@@ -1,5 +1,5 @@
 <style>
-    .text-left {
+    .text-left {    
         text-align: left;
     }
 </style>

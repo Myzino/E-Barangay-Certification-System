@@ -15,6 +15,9 @@ use App\Http\Controllers\App\{
 use App\Http\Controllers\TenantController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ResidentController;
+use App\Http\Controllers\PdfClearanceController;
+use App\Http\Controllers\PdfResidencyController;
+use App\Http\Controllers\PdfIndigencyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +66,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/pdf', [ PdfController::class, 'index' ])->name('pdf.download');
 
+    Route::get('/pdf-clearance', [ PdfClearanceController::class, 'index' ])->name('pdf.clearance');
+    Route::get('/pdf-residency', [ PdfResidencyController::class, 'index' ])->name('pdf.residency');
+    Route::get('/pdf-indigency', [ PdfIndigencyController::class, 'index' ])->name('pdf.indigency');
 
 
     // this is the route only secretary can accesss!

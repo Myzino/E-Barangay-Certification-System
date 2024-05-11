@@ -1,3 +1,10 @@
+<style>
+td.align-middle { /* centering the data vertically */
+    vertical-align: middle;
+}
+
+</style>
+
 @extends('app.dashboard')
 @section('content')
 
@@ -30,9 +37,9 @@
 
                         @foreach($residents as $resident)
                             <tr>
-                                <td>{{ ucfirst($resident->name) }}</td>
-                                <td>{{ ucfirst($resident->phone) }}</td>
-                                <td>{{ $resident->address }}</td>
+                                <td class="align-middle">{{ ucfirst($resident->name) }}</td>
+                                <td class="align-middle">{{ ucfirst($resident->phone) }}</td>
+                                <td class="align-middle">{{ $resident->address }}</td>
                                 <td>
                                   <div class="btn-group dropend">
                                       <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton_{{ $resident->id }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,6 +73,9 @@
 </div>
 
 @endsection
+
+
+{{-- script for dynamic choose of certificate (the choosen certificate will replace the default text) --}}
 <script>
 
   function updateCertificate(residentId, certificate) {
