@@ -36,7 +36,7 @@
 
           @role('secretary')
           <li class="nav-item">
-            <a href="{{ route ('app.indigency') }}" class="nav-link">
+            <a href="{{ route ('indigency.index') }}" class="nav-link">
               <i class="link-icon" data-feather="help-circle"></i>
               <span class="link-title">Barangay Indigency</span>
             </a>
@@ -45,7 +45,7 @@
           
           @role('secretary|official')
           <li class="nav-item">
-            <a href="{{ route ('app.clearance') }}" class="nav-link">
+            <a href="{{ route ('clearance.index') }}" class="nav-link">
               <i class="link-icon" data-feather="map-pin"></i>
               <span class="link-title">Barangay Clearance</span>
             </a>
@@ -55,7 +55,7 @@
 
           @role('secretary|official|purok-leader')
           <li class="nav-item">
-            <a href="{{ route ('app.residence') }}" class="nav-link">
+            <a href="{{ route ('residency.index') }}" class="nav-link">
               <i class="link-icon" data-feather="briefcase"></i>
               <span class="link-title">Barangay Residency</span>
             </a>
