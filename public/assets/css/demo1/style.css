@@ -118,7 +118,16 @@ body.dark {
     --custom-faq-active-color: #f0f1ff;
     --for-light-mode-bg: transparent;
 
+}
 
+body.green {
+    --custom-card-bg: #198754;
+    --bs-body-color: #FFF;
+}
+
+body.red {
+    --custom-card-bg: #dc3545;
+    --bs-body-color: #FFF;
 }
 
 hr {
@@ -3583,7 +3592,7 @@ textarea.is-invalid.typeahead.tt-hint, .select2-container--default .select2-sear
   padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
   clear: both;
   font-weight: 400;
-  color: var(--bs-dropdown-link-color);
+  color: var(--bs-body-color);          /*ramon theme*/
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;

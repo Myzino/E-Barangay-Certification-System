@@ -5,8 +5,45 @@
     <div class="navbar-content">
         <ul class="navbar-nav">
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <div id="toggle-btn" class="fas fa-sun"></div>
+            </li> --}}
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: var(--bs-body-color);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </a>
+                <div class="dropdown-menu p-0" aria-labelledby="appsDropdown">
+                    <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+                        <p class="mb-0 fw-bold">Theme Customization</p>
+                    </div>
+                    <div class="row g-0 p-1">
+                        <div class="col-3 text-center cursor-pointer" id="light-btn">
+                            <div class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70">
+                                <div id="light-btn" class="fas fa-sun p-1"></div>
+                                <p class="tx-12">Light</p>
+                            </div>
+                        </div>
+                        <div class="col-3 text-center cursor-pointer" id="dark-btn">
+                            <div class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70">
+                                <div id="dark-btn" class="fas fa-moon p-1"></div>
+                                <p class="tx-12">Dark</p>
+                            </div>                        
+                        </div>
+                        <div class="col-3 text-center cursor-pointer" id="green-btn">
+                            <div class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70">
+                                <div id="blue-btn" class="fas fa-tree p-1"></div>
+                                <p class="tx-12">Nature</p>
+                            </div>        
+                        </div>
+                        <div class="col-3 text-center cursor-pointer" id="red-btn">
+                            <div class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70">
+                                <div id="red-btn" class="fas fa-fire p-1"></div>
+                                <p class="tx-12">Fire</p>
+                            </div>        
+                        </div>
+                    </div>
+                </div>
             </li>
 
             @php
@@ -62,30 +99,113 @@
     let toggleBtn = document.querySelector('#toggle-btn');  //selecting the sun icon
     let darkMode = localStorage.getItem('dark-mode');
 
+    // Select the moon button
+    let moonBtn = document.querySelector('#dark-btn');
+    // Select the light button
+    let lightBtn = document.querySelector('#light-btn');
+    // Select the green button
+    let greenBtn = document.querySelector('#green-btn');
+    // Select the green button
+    let redBtn = document.querySelector('#red-btn');
+
+
+    // Function to enable dark mode
     const enableDarkMode = () => {
-        toggleBtn.classList.replace('fa-sun', 'fa-moon');
-        body.classList.add('dark');
-        localStorage.setItem('dark-mode', 'enabled');
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark'); // Store the theme preference in localStorage
     }
 
-    const disableDarkMode = () => {
-        toggleBtn.classList.replace('fa-moon', 'fa-sun');
-        body.classList.remove('dark');
-        localStorage.setItem('dark-mode', 'disabled');
+    // Function to enable green mode
+    const enableGreenMode = () => {
+        document.body.classList.add('green');
+        localStorage.setItem('theme', 'green'); 
     }
 
-    if(darkMode === 'enabled') {
+    // Function to enable green mode
+    const enableRedMode = () => {
+        document.body.classList.add('red');
+        localStorage.setItem('theme', 'red'); 
+    }
+
+    // Function to remove all classes from the body (light mode)
+    const removeAllClassesFromBody = () => {
+        document.body.className = ''; // Set the class attribute to an empty string
+    }
+
+    // Function to apply the saved theme preference
+    const applySavedTheme = () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            enableDarkMode();
+        } else if (savedTheme === 'green') {
+            enableGreenMode();
+        } else if (savedTheme === 'red') {
+            enableRedMode();
+        }
+    }
+
+
+
+
+
+    // Function to toggle dark mode when moon icon is clicked
+    moonBtn.onclick = (e) => {
+        let darkMode = localStorage.getItem('dark-mode');
+        removeAllClassesFromBody(); // Remove all classes from the body
         enableDarkMode();
     }
 
-    toggleBtn.onclick = (e) => {
-        let darkMode = localStorage.getItem('dark-mode');
-        if(darkMode === 'disabled') {
-            enableDarkMode();
-        } else {
-            disableDarkMode();
-        }
+    greenBtn.onclick = (e) => {
+        let greenMode = localStorage.getItem('green-mode');
+        removeAllClassesFromBody(); // Remove all classes from the body
+        enableGreenMode();
     }
+
+    redBtn.onclick = (e) => {
+        let redMode = localStorage.getItem('red-mode');
+        removeAllClassesFromBody(); // Remove all classes from the body
+        enableRedMode();
+    }
+
+    // Add click event listener to the light button
+    lightBtn.onclick = () => {
+        removeAllClassesFromBody(); // Remove all classes from the body
+    }
+
+
+
+    // Apply the saved theme preference when the page loads
+    applySavedTheme();
+
+
+
+
+
+
+    // const enableDarkMode = () => {
+    //     toggleBtn.classList.replace('fa-sun', 'fa-moon');
+    //     body.classList.add('dark');
+    //     localStorage.setItem('dark-mode', 'enabled');
+    // }
+
+    // const disableDarkMode = () => {
+    //     toggleBtn.classList.replace('fa-moon', 'fa-sun');
+    //     body.classList.remove('dark');
+    //     localStorage.setItem('dark-mode', 'disabled');
+    // }
+
+    // if(darkMode === 'enabled') {
+    //     enableDarkMode();
+    // }
+
+    // toggleBtn.onclick = (e) => {
+    //     let darkMode = localStorage.getItem('dark-mode');
+    //     if(darkMode === 'disabled') {
+    //         enableDarkMode();
+    //     } else {
+    //         disableDarkMode();
+    //     }
+    // }
     //end of darkmode part=====>
 
 
