@@ -8,7 +8,7 @@
                 <div class="card-body">
                         <div class="d-flex justify-content-between">
 
-                                @role('secretary')  {{-- only user thah has secretary role can access this button--}}
+                                @role('secretary|official')  {{-- only user thah has secretary role can access this button--}}
                                 <a href="{{ route('users.index')}}" class="btn btn-primary">Tenant-Users</a>
                                 @endrole
                                 <a href="{{ route('resident.index')}}" class="btn btn-primary">Residents</a>

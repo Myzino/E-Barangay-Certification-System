@@ -70,7 +70,7 @@ Route::middleware('auth')->group(function () {
 
 
     // this is the route only secretary can accesss!
-    Route::group(['middleware' => ['role:secretary']], function () {
+    Route::group(['middleware' => ['role:official']], function () {
         
         Route::resource('users', UserController::class);
      });
