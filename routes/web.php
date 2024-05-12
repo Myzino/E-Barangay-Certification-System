@@ -1,8 +1,11 @@
 <?php
 
+use App\Mail\HelloMail;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TenantController;
+use App\Mail\CredentialsMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,11 @@ use App\Http\Controllers\TenantController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Route::get('/mail', function () {
+//     Mail::to('caumbanramon@gmail.com')
+//         ->send(new CredentialsMail());
+// });
 
 Route::get('/', function () {
     return view('welcome');
