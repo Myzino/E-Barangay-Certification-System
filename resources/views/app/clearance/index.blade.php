@@ -40,19 +40,11 @@ td.align-middle { /* centering the data vertically */
                                 <td class="align-middle">{{ ucfirst($clearance->name) }}</td>
                                 <td class="align-middle">{{ ucfirst($clearance->phone) }}</td>
                                 <td class="align-middle">{{ $clearance->address }}</td>
-                                <td>
-                                  <div class="btn-group dropend">
-                                      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton_{{ $clearance->id }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Choose a Certificate
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_{{ $clearance->id }}">
-                                          <a class="dropdown-item" href="#" onclick="updateCertificate({{ $clearance->id }}, 'Barangay Indigency')">Barangay Clearance</a>
-                                      </div>
-                                  </div>
-                                </td>
+                                <td class="align-middle">Barangay Clearance</td>
+
                                 <td>
                                   {{-- Export Button --}}
-                                  <button class="btn btn-info">Generate</button>
+                                  <a class="btn btn-info" href="{{ route('pdf.clearance', ['clearanceName' => $clearance->name]) }}">Generate</a>
                                     <!-- Delete Resident Modal -->
                                     @include('app.clearance.edit')
                                     <!-- Delete Resident Modal -->

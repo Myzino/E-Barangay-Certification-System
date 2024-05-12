@@ -69,9 +69,9 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="card">
 							<div class="row">
                 <div class="col-md-4 pe-md-0">
-                  <div class="authLogin-side-wrapper">
+                  {{-- <div class="authLogin-side-wrapper">
                         
-                  </div>
+                  </div> --}}
                 </div>
                 <div class="col-md-8 ps-md-0">
                     <a href="{{route('welcome')}}" style="position: absolute; top: 2%; right: 2%;">Back</a>

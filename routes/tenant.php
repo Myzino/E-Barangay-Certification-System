@@ -60,18 +60,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/logout', [TenantController::class, 'TenantLogout'])->name('app.logout');
 
-    Route::get('/indigency', [TenantController::class, 'TenantIndigency'])->name('app.indigency');
-
-    Route::get('/residence', [TenantController::class, 'TenantResidence'])->name('app.residence');
-
-    Route::get('/clearance', [TenantController::class, 'TenantClearance'])->name('app.clearance');
-
 
     Route::get('/pdf', [ PdfController::class, 'index' ])->name('pdf.download');
 
-    Route::get('/pdf-clearance', [ PdfClearanceController::class, 'index' ])->name('pdf.clearance');
-    Route::get('/pdf-residency', [ PdfResidencyController::class, 'index' ])->name('pdf.residency');
-    Route::get('/pdf-indigency', [ PdfIndigencyController::class, 'index' ])->name('pdf.indigency');
+    Route::get('/pdf-clearance/{clearanceName}', [ PdfClearanceController::class, 'index' ])->name('pdf.clearance');
+    Route::get('/pdf-residency/{residencyName}', [ PdfResidencyController::class, 'index' ])->name('pdf.residency');
+    Route::get('/pdf-indigency/{indigencyName}', [ PdfIndigencyController::class, 'index'])->name('pdf.indigency');
+
 
 
     // this is the route only secretary can accesss!

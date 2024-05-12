@@ -40,20 +40,12 @@ td.align-middle { /* centering the data vertically */
                                 <td class="align-middle">{{ ucfirst($indigency->name) }}</td>
                                 <td class="align-middle">{{ ucfirst($indigency->phone) }}</td>
                                 <td class="align-middle">{{ $indigency->address }}</td>
-                                <td>
-                                  <div class="btn-group dropend">
-                                      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton_{{ $indigency->id }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Choose a Certificate
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_{{ $indigency->id }}">
-                                          <a class="dropdown-item" href="#" onclick="updateCertificate({{ $indigency->id }}, 'Barangay Indigency')">Barangay Indigency</a>
-                                      </div>
-                                  </div>
-                                </td>
+                                <td class="align-middle">Barangay Indigency</td>
+
                                 <td>
                                   {{-- Export Button --}}
-                                  <button class="btn btn-info">Generate</button>
-                                    <!-- Delete Resident Modal -->
+                                  <a class="btn btn-info" href="{{ route('pdf.indigency', ['indigencyName' => $indigency->name]) }}">Generate</a>
+                                  <!-- Delete Resident Modal -->
                                     @include('app.indigency.edit')
                                     <!-- Delete Resident Modal -->
                                     @include('app.indigency.delete')

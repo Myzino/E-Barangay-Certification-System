@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class PdfClearanceController extends Controller
 {
-    public function index()
+    public function index($clearanceName)
     {
 
 
@@ -32,10 +32,14 @@ class PdfClearanceController extends Controller
         $fpdf->SetFont('Arial', '', 12);
         $fpdf->Cell(9, 5, 'that', 0, 0, 'L');
         $fpdf->SetFont('Arial', 'b', 12);
-        $fpdf->Cell(62, 5, 'RAMON PAULO A. CAUMBAN,', 'B', 0, 'L');
+        
+        $residentName = strtoupper($clearanceName);
+        $alignment = (strlen($residentName) > 20) ? 'L' : 'C'; // Adjust the threshold as needed
+        $fpdf->Cell(62, 5, $residentName, 'B', 0, $alignment);  // Center alignment if name is short
+
         $fpdf->SetFont('Arial', '', 12);
         $fpdf->Cell(1);
-        $fpdf->Cell(20, 5, 'of a legal', 0, 1, 'L');
+        $fpdf->Cell(20, 5, ', of a legal', 0, 1, 'L');
 
         $fpdf->Cell(18);
         $fpdf->Cell(132, 5, 'age bonafide resident of P-3, Central Poblacion, Kalilangan, Bukidnon', 0, 0, 'L');
@@ -57,7 +61,7 @@ class PdfClearanceController extends Controller
         $fpdf->Cell(36);
         $fpdf->Cell(15, 5, 'Issued,', 0, 0, 'L');
         $fpdf->SetFont('Arial', '', 12);
-        $fpdf->Cell(100, 5, 'this 13th day of May 2024, at Barangay Central Poblacion,', 0, 1, 'L');
+        $fpdf->Cell(100, 5, 'this ' . date('jS') . ' day of ' . date('F Y') . ', at Barangay Central Poblacion,', 0, 1, 'L');
 
         $fpdf->Cell(18);
         $fpdf->Cell(130, 5, 'Kalilangan, Bukidnon upon request of the interested party for whatever legal', 0, 1, 'L');
