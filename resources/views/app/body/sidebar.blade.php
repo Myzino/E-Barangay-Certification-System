@@ -30,7 +30,7 @@
           <li class="nav-item">
             <a href="{{ route ('app.plan') }}" class="nav-link">
               <i class="link-icon" data-feather="gift"></i>
-              <span class="link-title">Choose a Plan</span>
+              <span class="link-title">Choose a Subscription</span>
             </a>
           </li>
 

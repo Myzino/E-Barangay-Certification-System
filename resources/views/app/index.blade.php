@@ -6,19 +6,18 @@
         <div class="page-content">
 
 
-{{-- 
+
                 <div class="card">
                         <div class="card-body">
                                 <h5 class="card-title">Welcome to Certificate Generation</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">Generate Certificates for Residents</h6>
                                 <p class="card-text mb-3">Empower your barangay administration with the ability to swiftly generate essential certificates for residents. From barangay indigency to barangay residency, streamline your administrative processes effortlessly.</p>
                 
-                                @role('official')  
-                                <a href="{{ route('users.index')}}" class="btn btn-primary">Tenant-Users</a>
+                                @role('official|secretary')  
+                                <a href="{{ route('users.index')}}" class="btn btn-primary">Users</a>
                                 @endrole
-                                <a href="{{ route('resident.index')}}" class="btn btn-primary">Residents</a>
                         </div>
-                </div> --}}
+                </div>
 
                 <div class="d-flex justify-content-evenly my-4">
 
