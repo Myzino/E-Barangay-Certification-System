@@ -18,7 +18,7 @@ License: For each use you must have a valid license purchased only from above li
 	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
   <!-- Change the href attribute to the path of your icon file -->
-  <link rel="icon" href="{{ asset('../../../assets/barangay.png') }}" type="image/png">
+  <link rel="icon" href="{{ asset('../../../assets/certitech.png') }}" type="image/png">
 
 	<title>E-Barangay Login Page</title>
 
@@ -69,9 +69,8 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="card">
 							<div class="row">
                 <div class="col-md-4 pe-md-0">
-                  {{-- <div class="authLogin-side-wrapper">
-                        
-                  </div> --}}
+                  <div class="authLogin-side-wrapper">
+                  </div>
                 </div>
                 <div class="col-md-8 ps-md-0">
                     <a href="{{route('welcome')}}" style="position: absolute; top: 2%; right: 2%;">Back</a>

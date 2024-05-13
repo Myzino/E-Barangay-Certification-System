@@ -92,7 +92,7 @@
                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                 </div>
 
-                                <div>
+                                <div class="mt-4">
                                     <x-input-label for="domain-name" :value="__('Domain Name')" />
                                     <x-text-input id="domain-name" class="block mt-1 w-full" type="text" name="domain-name" :value="old('domain-name')" required autofocus autocomplete="domain-name" />
                                     <x-input-error :messages="$errors->get('domain-name')" class="mt-2" />

@@ -108,6 +108,11 @@
     // Select the green button
     let redBtn = document.querySelector('#red-btn');
 
+    // Function to enable light mode
+    const enableLightMode = () => {
+        document.body.classList.add('light');
+        localStorage.setItem('theme', 'light'); // Store the theme preference in localStorage
+    }
 
     // Function to enable dark mode
     const enableDarkMode = () => {
@@ -135,13 +140,15 @@
     // Function to apply the saved theme preference
     const applySavedTheme = () => {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
+        if (savedTheme === 'light') {
+            enableLightMode();
+        } else if (savedTheme === 'dark') {
             enableDarkMode();
-        } else if (savedTheme === 'green') {
+        }else if (savedTheme === 'green') {
             enableGreenMode();
         } else if (savedTheme === 'red') {
             enableRedMode();
-        }
+        } 
     }
 
 
@@ -169,7 +176,9 @@
 
     // Add click event listener to the light button
     lightBtn.onclick = () => {
+        let lightMode = localStorage.getItem('light-mode');
         removeAllClassesFromBody(); // Remove all classes from the body
+        enableLightMode();
     }
 
 
