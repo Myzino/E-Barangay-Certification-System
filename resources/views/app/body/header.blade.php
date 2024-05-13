@@ -1,3 +1,10 @@
+<style>
+
+    #dropdown-theme {
+        display: none;
+        margin-top: 1.2rem;
+    }
+</style>
 <nav class="navbar">
     <a href="#" class="sidebar-toggler">
         <i data-feather="menu"></i>
@@ -9,7 +16,7 @@
                 <div id="toggle-btn" class="fas fa-sun"></div>
             </li> --}}
 
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" id="dropdown-theme">
                 <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: var(--bs-body-color);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                 </a>
@@ -92,6 +99,8 @@
         </ul>
     </div>
 </nav>
+
+
 
 <script>
     let body = document.body;           //html's body element
@@ -216,8 +225,33 @@
     //     }
     // }
     //end of darkmode part=====>
+</script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to toggle the visibility of the theme dropdown
+        function toggleThemeDropdown() {
+            let themeDropdown = document.getElementById('dropdown-theme');
+            if (themeDropdown.style.display === 'none') {
+                themeDropdown.style.display = 'inline';
+                localStorage.setItem('dropdownVisible', 'true'); // Store state in localStorage
+            } else {
+                themeDropdown.style.display = 'none';
+                localStorage.removeItem('dropdownVisible'); // Remove state from localStorage
+            }
+        }
 
+        // Check if dropdown should be visible on page load
+        const isDropdownVisible = localStorage.getItem('dropdownVisible');
+        if (isDropdownVisible) {
+            let themeDropdown = document.getElementById('dropdown-theme');
+            themeDropdown.style.display = 'inline';
+        }
 
-
+        // Add event listener to the customize theme button
+        document.getElementById('customize-theme-btn').addEventListener('click', function(event) {
+            // Toggle the visibility of the theme dropdown
+            toggleThemeDropdown();
+        });
+    });
 </script>

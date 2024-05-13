@@ -20,7 +20,7 @@ License: For each use you must have a valid license purchased only from above li
   <!-- Change the href attribute to the path of your icon file -->
   <link rel="icon" href="{{ asset('../../../assets/certitech.png') }}" type="image/png">
 
-	<title>E-Barangay Login Page</title>
+	<title>CertiTech Login Page</title>
 
 
   {{-- custome style for image --}}
@@ -75,7 +75,7 @@ License: For each use you must have a valid license purchased only from above li
                 <div class="col-md-8 ps-md-0">
                     <a href="{{route('welcome')}}" style="position: absolute; top: 2%; right: 2%;">Back</a>
                   <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="noble-ui-logo logo-light d-block mb-2">E-<span>Barangay</span></a>
+                    <a href="#" class="noble-ui-logo logo-light d-block mb-2">Certi<span>Tech</span></a>
                     <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
 
                     <form class="forms-sample" method="POST" action="{{ route('login') }}">
