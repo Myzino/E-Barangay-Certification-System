@@ -107,6 +107,14 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+body.light {
+    --custom-card-bg: #FFF;
+    --bs-gray-100: #f8f9fa;
+    --bs-body-color: #070d19;
+    --bs-body-bg: #f9fafb;
+    --bs-border-color: #afafaf;
+}
+
 body.dark {
 
     --custom-card-bg: #0c1427;

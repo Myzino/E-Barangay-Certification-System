@@ -20,7 +20,7 @@ License: For each use you must have a valid license purchased only from above li
     <!-- Change the href attribute to the path of your icon file -->
     <link rel="icon" href="{{ asset('../../../assets/barangay.png') }}" type="image/png">
     
-	<title>E-Barangay Admin Register Page</title>
+	<title>CertiTech Register Page</title>
     
     {{-- custome style for image --}}
     <style type="text/css">
@@ -73,7 +73,7 @@ License: For each use you must have a valid license purchased only from above li
                 </div>
                 <div class="col-md-8 ps-md-0">
                   <div class="auth-form-wrapper px-4 py-4">
-                    <a href="#" class="noble-ui-logo logo-light d-block mb-2">E-<span>Barangay</span></a>
+                    <a href="#" class="noble-ui-logo logo-light d-block mb-2">Certi<span>Tech</span></a>
                     <h5 class="text-muted fw-normal mb-4">Create a free account.</h5>
                   
                     <form class="forms-sample" method="POST" action="{{ route('register') }}">

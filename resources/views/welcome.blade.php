@@ -60,10 +60,8 @@
 
     </head>
     <body class="" style="display: flex; justify-content: center; align-items: center;">
-        <div class="card w-75">
+        <div class="card w-75 m-3"  style="box-shadow: 5px 5px 5px 0px var(--bs-secondary);">
             <div class="card-body">
-
-
                 <div class="welcome-tenant">
                     <h1 class="center">WELCOME ADMIN!</h1>
                     <h3 class="center mt-2">How Do You Wish To Start?</h3>

@@ -9,7 +9,7 @@
       <div class="sidebar-header">
         <a href="{{ route ('app.dashboard') }}" class="sidebar-brand d-flex align-items-center">
           <img src="{{ asset('../../assets/barangay.png') }}" alt="Air Sense Logo" class="custom-radius">
-          E<span>Barangay</span>
+          Certi<span>Tech</span>
         </a>
         <div class="sidebar-toggler not-active">
           <span></span>
@@ -30,11 +30,11 @@
           <li class="nav-item">
             <a href="{{ route ('app.plan') }}" class="nav-link">
               <i class="link-icon" data-feather="gift"></i>
-              <span class="link-title">Choose a Plan</span>
+              <span class="link-title">Choose a Subscription</span>
             </a>
           </li>
 
-          @role('secretary')
+          @role('secretary|official|purok-leader')
           <li class="nav-item">
             <a href="{{ route ('indigency.index') }}" class="nav-link">
               <i class="link-icon" data-feather="help-circle"></i>
@@ -43,7 +43,7 @@
           </li>
           @endrole
           
-          @role('secretary|official')
+          @role('secretary|official|purok-leader')
           <li class="nav-item">
             <a href="{{ route ('clearance.index') }}" class="nav-link">
               <i class="link-icon" data-feather="map-pin"></i>

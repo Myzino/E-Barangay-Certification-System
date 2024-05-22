@@ -8,7 +8,10 @@ use Illuminate\Validation\Rules;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CredentialsMail;
+use Illuminate\Support\Str; 
+use Illuminate\Support\Facades\Hash;
 
 class TenantController extends Controller
 {
@@ -106,20 +109,38 @@ class TenantController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255',
             'domain-name' => 'required|string|max:255|unique:domains,domain',
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
 
         ]);
-        
-        $tenant = Tenant::create($validatedData);
-            $tenant -> domains() ->create([
 
-                'domain' => $validatedData['domain-name']. '.' .config('app.domain')
-            ]);
-            return redirect() -> route('tenants.index', $tenant);
+        // Generate a random password
+        $randomPassword = Str::random(10); // Generate a random password of 10 characters
+
+        $realPass = $randomPassword;
+        $tenant = Tenant::create([
+
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $randomPassword,
+        ]);
+
+        // Create the associated domain record
+        $tenant->domains()->create([
+            'domain' => $request['domain-name'] . '.' . config('app.domain')
+        ]);
+        
+        if (!$tenant) {
+            //Send email with user data
+            return redirect(route('tenants.index'))->with("error", "Invalid username or password!");
+        } else {
+            Mail::to($request->email)->send(new CredentialsMail($tenant, $realPass));
+            return redirect(route('tenants.index'))->with("success", "Tenant added successfully!");
+        }
+
+
     }
 
     /**
