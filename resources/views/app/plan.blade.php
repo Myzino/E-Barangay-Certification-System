@@ -58,31 +58,20 @@
                     <table class="mx-auto">
                         <tbody><tr>
                         <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check icon-md text-primary me-2"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                        <td><p>Accounting dashboard</p></td>
+                        <td><p>Color Customization</p></td>
                         </tr>
                         <tr>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check icon-md text-primary me-2"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                        <td><p>Invoicing</p></td>
-                        </tr>
                         <tr>
                         <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check icon-md text-primary me-2"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                        <td><p>Online payments</p></td>
-                        </tr>
-                        <tr>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check icon-md text-primary me-2"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                        <td><p>Branded website</p></td>
-                        </tr>
-                        <tr>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check icon-md text-primary me-2"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                        <td><p>Dedicated account manager</p></td>
+                        <td><p>Barangay Indigency</p></td>
                         </tr>
                         <tr>
                         <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x icon-md text-danger me-2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
-                        <td><p class="text-muted">Premium apps</p></td>
+                        <td><p class="text-muted">Premium</p></td>
                         </tr>
                     </tbody></table>
                     <div class="d-grid">
-                        <button class="btn btn-success mt-4">Start free trial</button>
+                        <button class="btn btn-success mt-4">PAY $70</button>
                     </div>
                     </div>
                 </div>
