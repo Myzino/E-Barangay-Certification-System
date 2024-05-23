@@ -56,7 +56,11 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/profile/store', [TenantController::class, 'TenantProfileStore'])->name('app.profile.store');
 
+    Route::post('/plan/payment', [TenantController::class, 'TenantPayment'])->name('app.plan.store');
+
     Route::get('/plan' , [TenantController::class, 'TenantPlan'])->name('app.plan');
+
+
 
     Route::get('/logout', [TenantController::class, 'TenantLogout'])->name('app.logout');
 

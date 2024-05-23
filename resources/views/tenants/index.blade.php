@@ -96,7 +96,11 @@
                                 </td>
                                 <td>
                                   <button class="btn btn-primary">Edit</button>
-                                  <button class="btn btn-secondary">Delete</button>
+                                  <form action="{{ route('tenants.destroy', $tenant->id) }}" method="POST" style="display:inline;" class="btn btn-secondary">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Are you sure you want to delete this tenant?')">Delete</button>
+                                        </form>
                                 </td>
                               </tr>
                               @endforeach

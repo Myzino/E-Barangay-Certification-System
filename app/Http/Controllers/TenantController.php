@@ -43,6 +43,12 @@ class TenantController extends Controller
         return view ('app.plan');
     }
 
+    public function TenantPayment() {
+
+        
+
+    }
+
     public function TenantProfileStore(Request $request) {  //post request to update profile
 
         $id = Auth::user()->id;         //access user table authenticated field
@@ -168,6 +174,15 @@ class TenantController extends Controller
      */
     public function update(Request $request, Tenant $tenant)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            // Add other validation rules for your fields
+        ]);
+    
+        $tenant->update($validatedData);
+    
+        return redirect()->route('tenants.index')->with('success', 'Tenant updated successfully');
         //
     }
 
@@ -176,6 +191,8 @@ class TenantController extends Controller
      */
     public function destroy(Tenant $tenant)
     {
-        //
+        $tenant->delete();
+
+        return redirect()->route('tenants.index')->with('success', 'Tenant and associated admin deleted successfully');
     }
 }

@@ -14,7 +14,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gift text-success icon-xxl d-block mx-auto my-3"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
                                 <h1 class="text-center">$0</h1>
                                 <p class="text-muted text-center mb-4 fw-light">free today</p>
-                                <h5 class="text-success text-center mb-4">Up to eternity</h5>
+                                <h5 class="text-success text-center mb-4">Up to 3 resident can be added</h5>
                                 <table class="mx-auto">
                                     <tbody>
                                         <tr>
@@ -45,7 +45,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gift text-success icon-xxl d-block mx-auto my-3"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
                                 <h1 class="text-center">$100</h1>
                                 <p class="text-muted text-center mb-4 fw-light">free today</p>
-                                <h5 class="text-success text-center mb-4">Up to eternity</h5>
+                                <h5 class="text-success text-center mb-4">Up to 20 resident can be added</h5>
                                 <table class="mx-auto">
                                     <tbody>
                                         <tr>
